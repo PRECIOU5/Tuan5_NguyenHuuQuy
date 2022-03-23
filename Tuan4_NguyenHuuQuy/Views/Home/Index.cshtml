@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Tuan4_NguyenHuuQuy.Models.Sach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2> Bán Giày </h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    @item.tensach
+                </div>
+                <div class="panel-body">
+                    <p><strong>Giá: </strong>@item.giaban</p>
+                    <p><strong>Ngày cập nhật: </strong>@item.ngaycapnhat</p>
+                    <p><strong>Số lượng tồn: </strong>@item.soluongton</p>
+                    <p><img src="@item.hinh" alt="hinh thumnail"></p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        <div class="DatMua">
+                            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+                            new { @id = item.masach, @strURL = Request.Url.ToString() })">Đặt mua</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+    }
